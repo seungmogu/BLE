@@ -10,7 +10,19 @@
 
 ### Client
    시작 화면에서 장치 2을 클릭
-   1. Qr코드 등록
+   
+   1. Qr코드 등록 
+   테스트용 
+   
+   ![seungmo_phone](https://user-images.githubusercontent.com/76981135/128312623-07e40866-67b0-4dd9-be15-1b113d5a17b6.png) 
+   
+   
+   //Qr코드가 필요하시다면 Qr코드를 읽은 후 해당 QR코드의 방식대로 생성해주세요 [QR Code Generator] (#https://goqr.me/#)
+   
+   2.
+    
+
+   
 
 ## 동작 설명
   Server에서   
