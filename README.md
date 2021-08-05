@@ -7,7 +7,7 @@
    시작 화면에서 장치 1을 클릭   
    1. 블루투스 On
    2. Gattserver On StartSuccess 토스트가 뜨는 지 확인
-   3. 정상적으로 연결 후 연결 후 토글 스위치 On (IMU 데이터 송신)
+   3. Client와 연결 후 토글 스위치 On (IMU 데이터 송신)
 
 ### Client
    시작 화면에서 장치 2을 클릭
@@ -24,9 +24,41 @@
    2. 생성된 List_View 클릭
    3. 블루투스 On
    4. 장치이름, 시리얼 번호, 블루투스 정보 확인하고 Server측과 일치하다면 Bluetooth Connect 클릭
-   5. 정상적으로 연결 되면 Client Dialog에 IMU데이터 수신
+   5. 정상적으로 Server와 연결이 되면 Client Dialog에 IMU데이터 수신
 
 ## 동작 설명
+
+Client 쪽으로 송신 코드
+  
+    private void send_data(){ //토글 스위치로 데이터 전송하는 함수
+            data_toggle.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (!onConnect) {
+                        Toast.makeText(Device1.this, "블루투스 연결X", Toast.LENGTH_SHORT).show();
+                        data_toggle.toggle();
+                    }
+                    else{
+                        is_toggle_on = !data_toggle.getText().toString().equals("OFF");
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                while (is_toggle_on) {
+                                    try {
+                                        Save_imuData();
+
+                                        Thread.sleep(500);
+                                        
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+                            }
+                        }).start();//연결 중일때
+                    }
+                }
+            });
+    }
 
 Server의 IMU 데이터를 저장하는 코드
 
@@ -50,7 +82,49 @@ Server의 IMU 데이터를 저장하는 코드
             } else {
                 Log.e(TAG, "writeCharacteristic fail");
             }
+            
+  수신된 IMU 데이터 Dialog에 표시하는 코드
+      
+      if(action.equals(CentralManager.ACTION_DATA_AVAILABLE)){
+                final byte[] txValue = intent.getByteArrayExtra(CentralManager.EXTRA_DATA);
+                try{
+                    String text = new String(txValue, StandardCharsets.UTF_8);
+                    update_data(text);
+                    Log.d(TAG, text);
+                }catch (Exception e) {
+                    Log.e(TAG, e.toString());
+                }
+            }
+            
+       private void update_data(String data){ //지정된 데이터를  텍스트뷰에 옮김
 
- 
-  Server의 IMU데이터가 바뀔때 마다 Client측의 onCharacteristicChanged 호출 & BroadcastReceiver로 전달 되어 0.5초마다 업데이트됨
- 
+        switch (data_value){ //0 1
+            case 0:
+                Dialog_TextView_Accelometer_x.setText(data);
+                data_value++;
+                break;
+            case 1:
+                Dialog_TextView_Accelometer_y.setText(data);
+                data_value++;
+                break;
+            case 2:
+                Dialog_TextView_Accelometer_z.setText(data);
+                data_value++;
+                break;
+            case 3:
+                Dialog_TextView_Gyro_x.setText(data);
+                data_value++;
+                break;
+            case 4:
+                Dialog_TextView_Gyro_y.setText(data);
+                data_value++;
+                break;
+            case 5:
+                Dialog_TextView_Gyro_z.setText(data);
+                data_value = 0;
+                break;
+        }
+        Log.e(TAG, String.valueOf(data_value));
+    }
+    
+  Server의 IMU 데이터가 바뀔때 마다 Client측 onCharacteristicChanged 호출 & BroadcastReceiver로 전달 되어 0.5초마다 업데이트됨
