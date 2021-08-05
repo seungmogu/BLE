@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/device1_page"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="디바이스1의 페이지"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="기기의 IMU 데이터"
+        android:layout_below="@id/device1_page"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textStyle="bold"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/Accelometer_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="가속도 X: "
+        android:textSize="20sp"
+        android:layout_marginTop="200dp"/>
+
+    <TextView
+        android:id="@+id/TextView_Accelometer_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Accelometer_x"
+        android:layout_alignTop="@id/Accelometer_x"
+        android:text=""
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/Accelometer_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Accelometer_x"
+        android:text="가속도 Y: "
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/TextView_Accelometer_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Accelometer_y"
+        android:layout_alignTop="@id/Accelometer_y"
+        android:textSize="20sp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/Accelometer_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Accelometer_y"
+        android:text="가속도 Z: "
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/TextView_Accelometer_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Accelometer_z"
+        android:layout_alignTop="@id/Accelometer_z"
+        android:textSize="20sp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/Gyro_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Accelometer_z"
+        android:text="자이로 X:"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/TextView_Gyro_x"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Gyro_x"
+        android:layout_alignTop="@id/Gyro_x"
+        android:textSize="20sp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/Gyro_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Gyro_x"
+        android:text="자이로 Y:"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/TextView_Gyro_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Gyro_y"
+        android:layout_alignTop="@id/Gyro_y"
+        android:textSize="20sp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/Gyro_z"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Gyro_y"
+        android:text="자이로 Z:"
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/TextView_Gyro_y"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/Gyro_z"
+        android:layout_alignTop="@id/Gyro_z"
+        android:textSize="20sp"
+        android:text="" />
+
+    <ToggleButton
+        android:id="@+id/ToggleButton_imuData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/TextView_Gyro_y"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20sp"
+        android:textOn="IMU 데이터 전송 중.."
+        android:text="전송"/>
+
+
+
+</RelativeLayout>

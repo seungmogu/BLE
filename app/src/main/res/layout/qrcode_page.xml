@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="qr코드의 정보"
+        android:layout_centerHorizontal="true"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/device_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="장치 이름: "
+        android:textSize="20sp"
+        android:layout_marginTop="200dp"/>
+
+    <TextView
+        android:id="@+id/TextView_DeviceName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/device_name"
+        android:layout_alignTop="@id/device_name"
+        android:text=""
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/serial_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/device_name"
+        android:text="시리얼 번호: "
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/TextView_SerialNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/serial_num"
+        android:layout_alignTop="@id/serial_num"
+        android:textSize="20sp"
+        android:text="" />
+
+    <TextView
+        android:id="@+id/address_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/serial_num"
+        android:text="블루투스 Address 정보: "
+        android:textSize="20sp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/TextView_Address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@id/address_num"
+        android:layout_alignTop="@id/address_num"
+        android:textSize="20sp"
+        android:text="" />
+
+    <Button
+        android:id="@+id/Button_BluetoothConnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/address_num"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"
+        android:text="Bluetooth Connect"
+        android:textStyle="bold"/>
+
+
+</RelativeLayout>
