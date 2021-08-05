@@ -7,7 +7,7 @@
    시작 화면에서 장치 1을 클릭   
    1. 블루투스 On
    2. Gattserver On StartSuccess 토스트가 뜨는 지 확인
-   3. Client의 4번 작업 후 연결 후 토글 스위치 On (IMU 데이터 송신)
+   3. 정상적으로 연결 후 연결 후 토글 스위치 On (IMU 데이터 송신)
 
 ### Client
    시작 화면에서 장치 2을 클릭
@@ -24,7 +24,7 @@
    2. 생성된 List_View 클릭
    3. 블루투스 On
    4. 장치이름, 시리얼 번호, 블루투스 정보 확인하고 Server측과 일치하다면 Bluetooth Connect 클릭
-   5. Server의 3번 작업 후 Dialog에 IMU데이터 수신
+   5. 정상적으로 연결 되면 Client Dialog에 IMU데이터 수신
 
 ## 동작 설명
 
@@ -54,5 +54,3 @@ Server의 IMU 데이터를 저장하는 코드
  
   Server의 IMU데이터가 바뀔때 마다 Client측의 onCharacteristicChanged 호출 & BroadcastReceiver로 전달 되어 0.5초마다 업데이트됨
  
-  
-  
